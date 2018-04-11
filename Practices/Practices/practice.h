@@ -9,5 +9,6 @@ using namespace std;
 
 void practice();
 void heapSort();
-
+void fourColor();
+void dfs(int i, vector<vector<int>> graph, vector<int> &history, int &count);
 #endif // !PRACTIC_H
