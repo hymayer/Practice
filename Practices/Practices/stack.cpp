@@ -1,4 +1,6 @@
 #include "stack.h"
+#include <stdio.h>
+#include <iostream>
 
 template <class T> Stack<T>::Stack()
 {
@@ -28,4 +30,20 @@ template <class T> T Stack<T>::pop()
 template <class T> bool Stack<T>::isEmpty()
 {
 	return m_size == 0;
+}
+
+int test_stack()
+{
+	Stack<int> intStack;
+	intStack.push(1);
+	intStack.push(2);
+	intStack.push(3);
+
+	while (!intStack.isEmpty())
+	{
+		printf("num:%d\n", intStack.pop());
+	}
+
+	system("pause");
+	return 0;
 }

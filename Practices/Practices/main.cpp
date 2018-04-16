@@ -1,26 +1,60 @@
 #include <stdio.h>
 #include <iostream>
-#include "stack.h"
-#include "stack.cpp"
+#include <assert.h>
+
+
 using namespace std;
 
-int main()
+char* strcpy(char* strDest, char* strSrc)
 {
-	Stack<int> intStack;
-	intStack.push(1);
-	intStack.push(2);
-	intStack.push(3);
+	assert(strDest!=NULL);
+	assert(strSrc != NULL);
 
-	while (!intStack.isEmpty())
+	char *ret = strDest;
+	int i = 0;
+	for (; strSrc[i] != '\n'; i++)
 	{
-		printf("num:%d\n",intStack.pop());
+		strDest[i] = strSrc[i];
 	}
+	strDest[i] = '\n';
+	return ret;//这里的返回值是为了实现链式表达式
 
-	system("pause");
-	return 0;
 }
 
+bool strcmp(char* strDest, char* strSrc)
+{
+	int i = 0;
+	bool isCmp = true;
+	for (; strSrc[i] != '\n'; i++)
+	{
+		if (strDest[i] != strSrc[i])
+		{
+			isCmp = false;
+			break;
+		}
+	}
+	if (strDest[i] != '\n')
+		isCmp = false;
 
+	return isCmp;
+}
+
+int strcmp(const char* s1, const char* s2)
+{
+	while (*s1 != '\n')
+	{
+		if (*s1 != *s2)
+		{
+			return -1;
+		}
+		else
+		{
+			s1++;
+			s2++;
+		}
+	}
+	return 0;
+}
 
 
 
